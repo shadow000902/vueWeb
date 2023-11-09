@@ -501,7 +501,7 @@ $--cascader-tag-background: #f0f2f5;
 
 /* Group
 -------------------------- */
-$--group-option-flex: 0 0 (1/5) * 100%;
+$--group-option-flex: 0 0 calc(1/5) * 100%;
 $--group-option-offset-bottom: 12px;
 $--group-option-fill-hover: rgba($--color-black, 0.06);
 $--group-title-color: $--color-black;

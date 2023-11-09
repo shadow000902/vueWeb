@@ -21,12 +21,12 @@
         >
           <div class="title">hello !</div>
           <div class="title-tips">欢迎来到{{ title }}！</div>
-          <el-form-item style="margin-top: 40px" prop="username">
+          <el-form-item style="margin-top: 40px" prop="account">
             <span class="svg-container svg-container-admin">
               <vab-icon :icon="['fas', 'user']" />
             </span>
             <el-input
-              v-model.trim="form.username"
+              v-model.trim="form.account"
               v-focus
               placeholder="请输入用户名"
               tabindex="1"
@@ -87,8 +87,8 @@
       },
     },
     data() {
-      const validateusername = (rule, value, callback) => {
-        if ('' == value) {
+      const validateaccount = (rule, value, callback) => {
+        if ('' === value) {
           callback(new Error('用户名不能为空'))
         } else {
           callback()
@@ -105,15 +105,15 @@
         nodeEnv: process.env.NODE_ENV,
         title: this.$baseTitle,
         form: {
-          username: '',
+          account: '',
           password: '',
         },
         rules: {
-          username: [
+          account: [
             {
               required: true,
               trigger: 'blur',
-              validator: validateusername,
+              validator: validateaccount,
             },
           ],
           password: [
@@ -144,8 +144,8 @@
       document.body.style.overflow = 'auto'
     },
     mounted() {
-      this.form.username = 'admin'
-      this.form.password = '123456'
+      this.form.account = 'admin'
+      this.form.password = 'abcdef'
     },
     methods: {
       handlePassword() {

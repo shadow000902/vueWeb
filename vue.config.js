@@ -55,7 +55,19 @@ module.exports = {
       warnings: true,
       errors: true,
     },
-    after: mockServer(),
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+        // pathRewrite: { '^/api': '/' },
+      },
+      '/oauth': {
+        target: 'http://127.0.0.1:8080',
+        changeOrigin: true,
+        pathRewrite: { '^/oauth': '/' },
+      },
+    },
+    // after: mockServer(),
   },
   configureWebpack() {
     return {
@@ -166,7 +178,7 @@ module.exports = {
   runtimeCompiler: true,
   productionSourceMap: false,
   css: {
-    requireModuleExtension: true,
+    // requireModuleExtension: true,
     sourceMap: true,
     loaderOptions: {
       scss: {
